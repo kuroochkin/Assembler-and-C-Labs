@@ -4,6 +4,7 @@
 #include <iomanip>
 #include <bitset>
 #include <climits>
+#include <cstdio>
 
 
 
@@ -118,3 +119,17 @@ void print64(void* p)
     cout << "Floating point (fixed): " << fixed << setprecision(4) << *double_x << endl;
     cout << "Floating point (exp): " << scientific << setprecision(4) << *double_x << endl << endl;
 }
+
+void printDump(void* p, size_t N) 
+{
+    unsigned char* ptr = reinterpret_cast<unsigned char*>(p);
+    for (size_t i = 0; i < N; ++i) {
+        printf("%02X ", ptr[i]);
+    }
+    printf("\n");
+
+    //Результат выполнения программы будет разным для процессоров с разными порядками следования байтов.
+}
+
+
+

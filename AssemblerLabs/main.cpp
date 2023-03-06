@@ -124,5 +124,24 @@ int main()
     uint64_t z64 = -5;
     print64(&z64);
 #pragma endregion
+
+#pragma region Task5
+
+    // ЗАДАНИЕ 5
+    int m = 0x99887766;
+    printDump(&m, sizeof(m));
+
+
+    int arr[] = { 0x99887766, 5, -5 };
+    printDump(arr, sizeof(arr));
+
+    //Здесь мы используем тот факт, что указатель на массив является указателем на его первый элемент.
+
+    double n = 5;
+    printDump(&n, sizeof(n));
+#pragma endregion
+    
+
+
     return 0;
 }
