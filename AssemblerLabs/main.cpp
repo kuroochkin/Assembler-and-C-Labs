@@ -128,20 +128,54 @@ int main()
 #pragma region Task5
 
     // «јƒјЌ»≈ 5
+    cout << "Task 5" << endl << endl;
+
+    cout << "int: " << endl;
     int m = 0x99887766;
     printDump(&m, sizeof(m));
 
-
+    cout << "int[]: " << endl;
     int arr[] = { 0x99887766, 5, -5 };
     printDump(arr, sizeof(arr));
 
     //«десь мы используем тот факт, что указатель на массив €вл€етс€ указателем на его первый элемент.
 
+    cout << "double: " << endl;
     double n = 5;
     printDump(&n, sizeof(n));
-#pragma endregion
-    
 
+    cout << endl;
+#pragma endregion
+
+#pragma region Task8
+
+    // «јƒјЌ»≈ 8
+
+    cout << "Task 8" << endl;
+
+    char word1[] = "jzyx";
+    char word2[] = "Є€юэ";
+
+    cout << endl;
+    
+    cout << "jzyx(char[])" << endl;
+    printDump(&word1, sizeof(word1));
+
+    cout << "Є€юэ(char[])" << endl;
+    printDump(&word2, sizeof(word2));
+
+    wchar_t word3[] = L"jzyx";
+    wchar_t word4[] = L"Є€юэ";
+
+    cout << endl;
+
+    cout << "jzyx(wchar_t[])" << endl;
+    printDump(&word3, sizeof(word3));
+
+    cout << "Є€юэ(wchar_t[])" << endl;
+    printDump(&word4, sizeof(word4));
+
+#pragma endregion
 
     return 0;
 }

@@ -6,11 +6,8 @@
 #include <climits>
 #include <cstdio>
 
-
-
 using namespace std;
 
-// переписать на cout
 void viewPointer(void* p)
 {
     char* p1 = reinterpret_cast<char*>(p);
