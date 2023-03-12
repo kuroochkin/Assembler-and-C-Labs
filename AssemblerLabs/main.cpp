@@ -25,6 +25,14 @@ int main()
     AlgebraicOperations(signed_num);
 #pragma endregion
 
+    //ÇÀÄÀÍÈÅ 4
+    cout << "Task 4" << endl << endl;
+
+    short x1 = -567;
+    short x2 = 123;
+
+    ShiftBits(x1);
+    ShiftBits(x2);
 
     return 0;
 }

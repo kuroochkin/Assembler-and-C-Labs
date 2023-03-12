@@ -62,11 +62,26 @@ void _AlgebraicOperations(uint16_t p)
 
 void ShiftBits(short x)
 {
+    cout << "Число " << x << endl;
 
+    short x1 = static_cast<unsigned short>(x) << 1;
+    cout << "Беззнаковый сдвиг влево на 1 бит: " << x1 << endl;
+
+    short x2 = static_cast<unsigned short>(x) >> 1;
+    cout << "Беззнаковый сдвиг вправо на 1 бит: " << x2 << endl;
+
+    short x3 = x << 1;
+    cout << "Знаковый сдвиг влево на 1 бит: " << x3 << endl;
+
+    short x4 = x >> 1;
+    cout << "Знаковый сдвиг вправо на 1 бит: " << x4 << endl;
+
+    short x5 = x & 15;
+    cout << "x & 15: " << x5 << endl;
+
+    short x6 = x & -16;
+    cout << "x & -16: " << x6 << endl << endl;
 }
 
-void _ShiftBits(short x)
-{
 
-}
 
