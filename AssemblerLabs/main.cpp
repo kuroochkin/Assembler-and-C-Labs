@@ -15,7 +15,7 @@ int main()
     cout << "Task 2" << endl;
     printPointer(&p);
 
-    int x = 0x8877665544332211;
+    long long x = 0x8877665544332211;
     char s[] = "abcdefgh0123456789";
 
     void* k = &x;
@@ -141,8 +141,9 @@ int main()
     //«десь мы используем тот факт, что указатель на массив €вл€етс€ указателем на его первый элемент.
 
     cout << "double: " << endl;
-    double n = 5;
+    double n = 5000000000000000000;
     printDump(&n, sizeof(n));
+    
 
     cout << endl;
 #pragma endregion

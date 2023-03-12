@@ -37,7 +37,7 @@ void printPointer(void* p)
     unsigned short* p2 = reinterpret_cast<unsigned short*>(p);
     double* p3 = reinterpret_cast<double*>(p);
 
-    cout << "char: " << *p1 << endl;
+    cout << "char: " << (int)*p1 << endl;
     cout << "unsigned short: " << hex << *p2 << endl;
     cout << "double: " << hex << *p3 << endl;
     cout << endl;
@@ -72,26 +72,17 @@ void print16(void* p)
 
 void print32(void* p)
 {
-
-
-    //cout << "Unsigned hexdecimal: 0x" << std::hex << *x << endl; //16
-    //cout << "Unsigned binary: " << std::bitset<32>(*x) << endl; //2
-    //cout << "Unsigned decimal: " << std::dec << *x << endl; // 10
-    //cout << "Signed hexdecimal: 0x" << std::hex << *x << endl; //16
-    //cout << "Signed binary: " << std::bitset<16>(*x) << endl; //2 // ERROR
-    //cout << "Signed decimal: " << std::dec << *x << endl << endl; //10
-
     uint32_t* x = static_cast<uint32_t*>(p);
     cout << "Unsigned integer (hex): 0x" << hex << setfill('0') << setw(8) << *x << endl;
     bitset<32> bits(*x);
     cout << "Unsigned integer (binary): " << bits << endl;
-    cout << "Unsigned integer (decimal): " << *x << endl;
+    cout << "!!!!!!!!!!!Unsigned integer (decimal): " << std::dec  << *x << endl;
 
     int32_t* signed_x = reinterpret_cast<int32_t*>(x);
     cout << "Signed integer (hex): 0x" << hex << setfill('0') << setw(8) << *signed_x << endl;
     bitset<32> signed_bits(*signed_x);
     cout << "Signed integer (binary): " << signed_bits << endl;
-    cout << "Signed integer (decimal): " << *signed_x << endl;
+    cout << "Signed integer (decimal): " << std::dec << *signed_x << endl;
 
     float* float_x = reinterpret_cast<float*>(x);
     cout << "Floating point (fixed): " << fixed << setprecision(4) << *float_x << endl;
@@ -122,6 +113,8 @@ void printDump(void* p, size_t N)
     unsigned char* ptr = reinterpret_cast<unsigned char*>(p);
     for (size_t i = 0; i < N; ++i) {
         printf("%02X ", ptr[i]);
+        /*bitset<8> signed_bits(ptr[i]);
+        cout << "Signed integer (binary): " << signed_bits << endl;*/
     }
     printf("\n");
 
