@@ -83,5 +83,31 @@ void ShiftBits(short x)
     cout << "x & -16: " << x6 << endl << endl;
 }
 
+unsigned Round_Down(int x) 
+{
+    return x & 0xFFF0;
+}
+
+unsigned Round_Up(int x) 
+{
+    return (x | 0x000F) & 0xFFF0;
+}
+
+float Absolute(float x) {
+    // ѕолучаем адрес переменной типа float
+    float* p = &x;
+    // ѕриводим адрес к типу указател€ на целочисленную переменную
+    int* ip = reinterpret_cast<int*>(p);
+    // ѕолучаем битовое представление числа
+    int bits = *ip;
+    // ќбнул€ем старший бит
+    bits &= 0x7FFFFFFF;
+    // ѕриводим число обратно к типу float
+    p = reinterpret_cast<float*>(&bits);
+    // ≈сли знак отрицательный, измен€ем его на противоположный
+    
+    return *p;
+}
+
 
 
