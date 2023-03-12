@@ -23,5 +23,8 @@
     <ClInclude Include="Lab2.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="Lab3.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
