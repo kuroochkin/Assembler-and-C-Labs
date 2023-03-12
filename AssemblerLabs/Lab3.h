@@ -109,5 +109,63 @@ float Absolute(float x) {
     return *p;
 }
 
+float HarmonicSeriesSd(int N) 
+{
+    float sum = 0.0;
+    for (int i = 1; i <= N; i++) {
+        sum += 1.0f / i;
+    }
+    return sum;
+}
+
+float HarmonicSeriesSa(int N) {
+    float sum = 0.0;
+    for (int i = N; i >= 1; i--) {
+        sum += 1.0f / i;
+    }
+    return sum;
+}
+
+double OurSeries(int i) 
+{
+    return pow(-1, i) * (i + 2) / (pow(i, 2) + 1);
+}
+
+double Euler_Maclaurin_Sum(double eps) {
+    double sum = 0, term;
+    int n = 2;
+
+    // Первый член суммы
+    term = OurSeries(0);
+
+    while (abs(term) > eps) 
+    {
+        sum += term;
+
+        // Вычисляем следующий член суммы
+        double h = 1.0 / n;
+        term = OurSeries(n);
+
+        // Используем ускоренное суммирование Эйлера-Маклорена
+        for (int k = 1; k < n; k++) {
+            double c = pow(h * k, 1) / (1 - pow(2 * h * k, 2));
+            term += c * OurSeries(n - k) + c * OurSeries(n + k);
+        }
+
+        n++;
+    }
+
+    return sum;
+}
+
+double Series(int alpha, double x) 
+{
+    return 1 / pow(x, alpha);
+}
+
+
+
+
+
 
 

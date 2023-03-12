@@ -54,16 +54,44 @@ int main()
 #pragma endregion
 
 
+
     //ЗАДАНИЕ 6
     cout << "Task 6" << endl << endl;
 
+#pragma region Taks7
     //ЗАДАНИЕ 7
     cout << "Task 7" << endl << endl;
 
     float x = -185.45;
-    cout << "Модуль числа " << x << " равен " << Absolute(x) << endl;
+    cout << "Модуль числа " << x << " равен " << Absolute(x) << endl << endl;
+#pragma endregion
+
+//#pragma region Task8
+//    //ЗАДАНИЕ 8
+//    cout << "Task 8" << endl << endl;
+//
+//    int N = 1000;
+//    cout << "Sd(" << N << ") = " << HarmonicSeriesSd(N) << endl;
+//    cout << "Sa(" << N << ") = " << HarmonicSeriesSa(N) << endl;
+//
+//    N = 1000000;
+//    cout << "Sd(" << N << ") = " << HarmonicSeriesSd(N) << endl;
+//    cout << "Sa(" << N << ") = " << HarmonicSeriesSa(N) << endl;
+//
+//    N = 1000000000;
+//    cout << "Sd(" << N << ") = " << HarmonicSeriesSd(N) << endl;
+//    cout << "Sa(" << N << ") = " << HarmonicSeriesSa(N) << endl << endl;
+//#pragma endregion
 
 
+    // ЗАДАНИЕ 9
+    cout << "Task 9" << endl << endl;
+
+    double eps = 10;
+
+    double sum = Euler_Maclaurin_Sum(eps);
+
+    cout << "Сумма ряда S = " << sum << endl;
 
     return 0;
 
