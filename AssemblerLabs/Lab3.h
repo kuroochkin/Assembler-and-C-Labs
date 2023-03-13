@@ -5,6 +5,8 @@
 #include <bitset>
 #include <climits>
 #include <cstdio>
+#include <cmath>
+
 
 using namespace std;
 
@@ -131,7 +133,8 @@ double OurSeries(int i)
     return pow(-1, i) * (i + 2) / (pow(i, 2) + 1);
 }
 
-double Euler_Maclaurin_Sum(double eps) {
+double Euler_Maclaurin_Sum(double eps) 
+{
     double sum = 0, term;
     int n = 2;
 
@@ -161,6 +164,33 @@ double Euler_Maclaurin_Sum(double eps) {
 double Series(int alpha, double x) 
 {
     return 1 / pow(x, alpha);
+}
+
+double Euler_Maclaurin_Sum2(int alpha, double eps) 
+{
+    double sum = 0, term;
+    int n = 1;
+
+    // Первый член суммы
+    term = Series(alpha, n);
+
+    while (abs(term) > eps) {
+        sum += term;
+
+        // Вычисляем следующий член суммы
+        double h = 1.0 / n;
+        term = Series(alpha, n + 1);
+
+        // Используем ускоренное суммирование Эйлера-Маклорена
+        for (int k = 1; k < n; k++) {
+            double c = pow(h * k, alpha - 1) / (1 - pow(2 * h * k, alpha));
+            term += c * Series(alpha, n + 1 - k) + c * Series(alpha, n + k);
+        }
+
+        n++;
+    }
+
+    return sum;
 }
 
 

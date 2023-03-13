@@ -93,7 +93,20 @@ int main()
 
     cout << "Ñóììà ğÿäà S = " << sum << endl;
 
+
+    // ÇÀÄÀÍÈÅ 10
+    cout << "Task 10" << endl << endl;
+
+    double eps1 = 100;
+    int alpha = 10;
+
+    double sum1 = Euler_Maclaurin_Sum2(alpha, eps1);
+
+    cout << "Ñóììà ğÿäà S = " << sum1 << endl;
+
     return 0;
+
+
 
     
 
