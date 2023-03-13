@@ -87,22 +87,19 @@ int main()
     // ÇÀÄÀÍÈÅ 9
     cout << "Task 9" << endl << endl;
 
-    double eps = 10;
+    double eps = 0.001;
 
-    double sum = Euler_Maclaurin_Sum(eps);
+    PartialSums1(eps);
 
-    cout << "Ñóììà ğÿäà S = " << sum << endl;
-
+    cout << endl;
 
     // ÇÀÄÀÍÈÅ 10
     cout << "Task 10" << endl << endl;
 
-    double eps1 = 100;
-    int alpha = 10;
-
-    double sum1 = Euler_Maclaurin_Sum2(alpha, eps1);
-
-    cout << "Ñóììà ğÿäà S = " << sum1 << endl;
+    double eps1 = 0.001;
+    int alpha = 20;
+  
+    PartialSums2(eps1, alpha);
 
     return 0;
 

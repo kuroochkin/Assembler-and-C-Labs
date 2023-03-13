@@ -166,32 +166,38 @@ double Series(int alpha, double x)
     return 1 / pow(x, alpha);
 }
 
-double Euler_Maclaurin_Sum2(int alpha, double eps) 
+
+void PartialSums1(double eps)
 {
-    double sum = 0, term;
-    int n = 1;
-
-    // Первый член суммы
-    term = Series(alpha, n);
-
-    while (abs(term) > eps) {
-        sum += term;
-
-        // Вычисляем следующий член суммы
-        double h = 1.0 / n;
-        term = Series(alpha, n + 1);
-
-        // Используем ускоренное суммирование Эйлера-Маклорена
-        for (int k = 1; k < n; k++) {
-            double c = pow(h * k, alpha - 1) / (1 - pow(2 * h * k, alpha));
-            term += c * Series(alpha, n + 1 - k) + c * Series(alpha, n + k);
-        }
-
-        n++;
-    }
-
-    return sum;
+    double S = 0.0, S_prev = 0.0, a_k = 0.0;
+    int k = 0;
+    do {
+        S_prev = S;
+        a_k = OurSeries(k);
+        S += a_k;
+        k++;
+    } while (abs(S - S_prev) > eps);
+    cout << "Sum = " << S << endl;
 }
+
+void PartialSums2(double eps, int alpha)
+{
+    double S = 0.0, S_prev = 0.0, a_k = 0.0;
+    int k = 0;
+    do {
+        S_prev = S;
+        a_k = Series(k, alpha);
+        S += a_k;
+        k++;
+    } while (abs(S - S_prev) > eps);
+    cout << "Sum = " << S << endl;
+}
+
+
+
+
+
+
 
 
 
